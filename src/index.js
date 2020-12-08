@@ -27,6 +27,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App.js';
+import './bootstrap.min.css';
 import './styles/main.scss';
 
 render(
