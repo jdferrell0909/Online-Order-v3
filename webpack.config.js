@@ -36,6 +36,14 @@ module.exports = {
         }
       },
       {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+          },
+        ],
+      },
+      {
         test: /\.(ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource'
       },

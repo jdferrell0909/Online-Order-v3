@@ -9,15 +9,6 @@ let products;
 
 const HomeScreen = () => {
   const [products, setProducts] = useState([]);
-  
-  // useEffect(() => {
-  //   axios
-  //     .get('/api/menu')
-  //     .then(response => {
-  //       setProducts(response.data);
-  //     })
-  //     .catch(err => console.log(err.message))
-  // }, [])
 
   useEffect(() => {
     const fetchProducts = async () => {

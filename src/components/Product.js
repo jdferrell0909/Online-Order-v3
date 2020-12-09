@@ -7,9 +7,8 @@ const Product = ({ product }) => {
       {console.log(product.image)}
       <Card className='my-3 p-3 rounded'>
         <a href={`/product/${product._id}`}>
-          <Card.Img src={`./public${product.image}`} variant='top' />
+          <Card.Img src={`/public${product.image}`} variant='top' />
         </a>
-
         <Card.Body>
           <a href={`/product/${product._id}`}>
             <Card.Title as='div'>
