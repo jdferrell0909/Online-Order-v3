@@ -6,11 +6,9 @@ const products = require('./data/data.js')
 
 const PORT = process.env.PORT || 5000;
 
-app.get('/images', (req, res) => {
-  res.send('../public/images/bacon-burger.jpg')
-})
-
 app.use(express.static(path.join(__dirname, 'dist')));
+
+app.use('/images', express.static('/public/images'))
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './src/template.html'));

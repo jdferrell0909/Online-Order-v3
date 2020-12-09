@@ -34,7 +34,7 @@ const NewItem = () => {
           <Form.Control as="textarea" rows={3} placeholder="Description..."></Form.Control>
         </Form.Group>
         <Form.Group controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Render Now" />
+          <Form.Check type="checkbox" label="Display Now" />
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit
