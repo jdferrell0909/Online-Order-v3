@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './src/template.html'));
 });
 
+app.get('/images', (req, res) => {
+  res.send('../public/images/bacon-burger.jpg')
+})
+
 app.get('/api/menu', (req, res) => {
   res.send(products);
   // try {
