@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 const regeneratorRuntime = require('regenerator-runtime');
 import Product from '../components/Product.js';
+import NewItem from './NewItem.js';
 
 let products;
 
@@ -29,7 +30,7 @@ const HomeScreen = () => {
   
   return (
     <div>
-      <h1>Current Menu</h1>
+      <h1>Current Offerings</h1>
       <Row>
         {products.map(product => (
           <Col sm={12} md={6} lg={4} xl={3}>
@@ -37,6 +38,9 @@ const HomeScreen = () => {
             <Product product={product} />
           </Col>
         ))}
+      </Row>
+      <Row>
+        <NewItem />
       </Row>
     </div>
   )

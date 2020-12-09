@@ -29,6 +29,10 @@ app.get('/api/menu', (req, res) => {
   // }
 });
 
+app.get('/api/newItem', (req, res) => {
+  res.send('hello')
+})
+
 app.listen(PORT, () => {
   console.log('server running.... 5000');
 })
