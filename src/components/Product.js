@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import axios from 'axios';
 
 const Product = ({ product }) => {
@@ -33,7 +34,9 @@ const Product = ({ product }) => {
           </Row>
           <Row style={{height: '20%'}}>
             <Col>
+            <LinkContainer to={`/updateItem/${product._id}`}>
               <Button variant="info" type="submit" size="sm">Update Item</Button>
+            </LinkContainer>
             </Col>
             <Col>
               <Button variant="danger" type="submit" size="sm" onClick={handleDelete}>Remove Item</Button>
