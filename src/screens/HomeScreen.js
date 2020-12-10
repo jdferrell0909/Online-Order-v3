@@ -30,9 +30,6 @@ const HomeScreen = () => {
           </Col>
         ))}
       </Row>
-      <Row>
-        <NewItem />
-      </Row>
     </div>
   )
 }

@@ -6,6 +6,12 @@ const products = require('./data/data.js')
 
 const PORT = process.env.PORT || 5000;
 
+const deleteMiddleware = (req, res, next) => {
+  const id = req.params.id;
+  console.log('I will delete from database');
+  return next();
+}
+
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/images', express.static('/public/images'))
@@ -16,19 +22,10 @@ app.get('/', (req, res) => {
 
 app.get('/api/menu', (req, res) => {
   res.send(products);
-  // try {
-  //   await axios
-  //     .get('https://api.spoonacular.com/food/menuItems')
-  //     .then(response => {
-  //       res.send(response.data);
-  //     })
-  // } catch(err) {
-  //   console.log('ERR inside server GET to spoonacular', err.message)
-  // }
 });
 
-app.get('/api/newItem', (req, res) => {
-  res.send('hello')
+app.delete('/api/products/:id', deleteMiddleware, (req, res) => {
+  res.send('has been deleted')
 })
 
 app.listen(PORT, () => {
