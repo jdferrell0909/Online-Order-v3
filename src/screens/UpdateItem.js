@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import axios from 'axios';
 
-const UpdateItem = ({}) => {
+const UpdateItem = ({ match }) => {
+  // would like to figure out a way to get individual product information in order to put that info in as placeholder
+  console.log(products);
+  // const [products, setProducts] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const { data } = await axios.get('/api/menu');
+  
+  //     setProducts(data);
+  //   }
+  //   fetchProducts();
+  // }, [])
+    
+  //   const id = match.params.id;
+  //   const product = products.find((p) => p._id === id);
+  //   console.log(product);
+
   return (
     <div>
       <h1>Update Menu Item</h1>
@@ -9,7 +27,7 @@ const UpdateItem = ({}) => {
       <Form>
         <Form.Group controlId="formBasicName">
           <Form.Label>Dish Name</Form.Label>
-          <Form.Control type="text" placeholder="Dish Name" />
+          <Form.Control type="text" placeholder='dish name' />
         </Form.Group>
 
         <Form.Group controlId="formBasicPrice">

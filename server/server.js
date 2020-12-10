@@ -14,7 +14,7 @@ const deleteMiddleware = (req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use('/images', express.static('/public/images'))
+app.use('/images', express.static('./public/images'))
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './src/template.html'));
@@ -23,6 +23,11 @@ app.get('/', (req, res) => {
 app.get('/api/menu', (req, res) => {
   res.send(products);
 });
+
+app.post('/api/add' , (req, res) => {
+  console.log(req.body);
+  res.send('post received');
+})
 
 app.delete('/api/products/:id', deleteMiddleware, (req, res) => {
   res.send('has been deleted')

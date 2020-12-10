@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap'
 import axios from 'axios';
@@ -9,16 +9,7 @@ import NewItem from '../screens/NewItem.js';
 import UpdateItem from '../screens/UpdateItem.js';
 
 const App = () => {
-  let products;
-  useEffect(() => {
-    axios
-      .get('/api/menu')
-      .then(response => {
-        products = response.data;
-      })
-      .catch(err => console.log(err.message))
-  })
-
+  
   return (
     <Router>
       <Header />

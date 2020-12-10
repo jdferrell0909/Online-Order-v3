@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
 import { Form, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 const NewItem = () => {
+  const handleSubmit = useCallback(() => {
+    console.log('new item submit');
+    axios
+      .post('/api/add', { name: 'James' })
+      .then(response => console.log(response.data))
+      .catch(err => console.log(err.message));
+  })
+
   return (
     <div>
       <h1>Add New Menu Item</h1>
@@ -36,9 +46,11 @@ const NewItem = () => {
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Display Now" />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <LinkContainer to="/">
+          <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </LinkContainer>
       </Form>
     </div>
   )

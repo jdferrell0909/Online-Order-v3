@@ -3,6 +3,7 @@ import { Nav, Navbar, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const Header = () => {
+  // would like to add new page that lists all e-club members which would get that data from database
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
@@ -17,7 +18,7 @@ const Header = () => {
                 <LinkContainer to="newItem">
                   <Nav.Link>Add New Item</Nav.Link>
                 </LinkContainer>
-                <Nav.Link href="/signup">E-Club</Nav.Link>
+                <Nav.Link href="/signup">E-Club Members</Nav.Link>
                 <Nav.Link href="/cart"><i className='fas fa-shopping-cart'></i> Cart</Nav.Link>
               </Nav>
             </Navbar.Collapse>
