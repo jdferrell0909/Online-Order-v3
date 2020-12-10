@@ -6,6 +6,8 @@ const products = require('./data/data.js')
 
 const PORT = process.env.PORT || 5000;
 
+app.use(express.json());
+
 const deleteMiddleware = (req, res, next) => {
   const id = req.params.id;
   console.log('I will delete from database');

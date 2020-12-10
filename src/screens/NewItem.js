@@ -10,6 +10,11 @@ const NewItem = () => {
       .post('/api/add', { name: 'James' })
       .then(response => console.log(response.data))
       .catch(err => console.log(err.message));
+    // fetch('/api/add', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ nickname: 'James' }),
+    //   headers: { 'Content-Type': 'application/json' },
+    // })
   })
 
   return (
@@ -41,7 +46,7 @@ const NewItem = () => {
         </Form.Group>
         <Form.Group controlId="formBasicDescription">
           <Form.Label>Description</Form.Label>
-          <Form.Control as="textarea" rows={3} placeholder="Description..."></Form.Control>
+          <Form.Control as="textarea" rows={3} placeholder="Description..." />
         </Form.Group>
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Display Now" />
@@ -57,3 +62,19 @@ const NewItem = () => {
 }
 
 export default NewItem
+
+
+
+// const initialState = { 
+//   dishName: '',
+//   price: '',
+//   category: '',
+//   numberInStock: '',
+//   description: '',
+//   renderCheck: false
+// }
+// const [eachEntry, setEachEntry] = useState(initialState);
+
+// const handleInputChange = e => {
+//   setEachEntry({ ...eachEntry, [e.target.name]: e.target.value})
+// }
