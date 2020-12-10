@@ -14,25 +14,36 @@ const deleteMiddleware = (req, res, next) => {
   return next();
 }
 
+const postMiddleware = (req, res, next) => {
+  const { name, price, category, countInStock, description } = req.body;
+  console.log('I will post to database');
+  return next();
+}
+
+const getMiddleware = (req, res, next) => {
+  console.log('I will get products from database');
+  return next();
+}
+
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use('/images', express.static('./public/images'))
+app.use('/images', express.static('./public/images'));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './src/template.html'));
 });
 
-app.get('/api/menu', (req, res) => {
+app.get('/api/menu', getMiddleware, (req, res) => {
   res.send(products);
 });
 
-app.post('/api/add' , (req, res) => {
+app.post('/api/add', postMiddleware, (req, res) => {
   console.log(req.body);
-  res.send('post received');
+  res.send('created item in db');
 })
 
 app.delete('/api/products/:id', deleteMiddleware, (req, res) => {
-  res.send('has been deleted')
+  res.send('has been deleted');
 })
 
 app.listen(PORT, () => {

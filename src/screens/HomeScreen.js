@@ -16,7 +16,7 @@ const HomeScreen = () => {
     }
     fetchProducts();
   }, [])
-  
+  // once I have database set up, will likely want to use .filter instead of map and test for whether or not renderCheck is truthy
   return (
     <div>
       <h1>Current Offerings</h1>

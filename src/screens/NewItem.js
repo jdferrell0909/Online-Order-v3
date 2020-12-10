@@ -24,7 +24,7 @@ const NewItem = () => {
   const handleSubmit = useCallback(() => {
     console.log('new item submit');
     axios
-      .post('/api/add', { eachEntry })
+      .post('/api/add', { ...eachEntry })
       .then(response => console.log(response.data))
       .catch(err => console.log(err.message));
   })

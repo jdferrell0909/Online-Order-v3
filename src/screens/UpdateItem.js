@@ -11,7 +11,8 @@ const UpdateItem = ({ match }) => {
     axios.get('/api/menu').then((response) => {
       setProducts([...response.data]);
     });
-}, []);
+    
+  }, []);
   
     
     const id = match.params.id;
