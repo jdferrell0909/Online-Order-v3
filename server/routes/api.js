@@ -1,17 +1,18 @@
 const express = require('express');
 const productsController = require('../controllers/productsController');
+const products = require('../data/data.js');
 
 const router = express.Router();
 
-router.get('/menu', getMiddleware, (req, res) => {
+router.get('/menu', productsController.getProducts, (req, res) => {
   res.send(products);
 });
 
-router.post('/add', postMiddleware, (req, res) => {
+router.post('/add', productsController.addProduct, (req, res) => {
   res.send('Item created in databse');
 });
 
-router.delete('/products/:id', deleteMiddleware, (req, res) => {
+router.delete('/products/:id', productsController.deleteProduct, (req, res) => {
   res.send('has been deleted from database');
 });
 
