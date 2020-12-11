@@ -13,11 +13,8 @@ const UpdateItem = ({ match }) => {
     });
     
   }, []);
-  
-    
-    const id = match.params.id;
-    console.log(id);
-    // const productId = products.find((p) => p._id === id);
+  const id = match.params.id;
+
     
 
   return (
