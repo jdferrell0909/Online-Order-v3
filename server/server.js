@@ -7,10 +7,12 @@ const products = require('./data/data.js');
 const { Product } = require('./models/ProductModel.js');
 
 const PORT = process.env.PORT || 5000;
-const mongoURI = 'mongodb+srv://james123:james123@devconnector.slctd.mongodb.net/onlineorderapp?retryWrites=true&w=majority'
+const mongoURI = 'mongodb+srv://james123:james123@devconnector.slctd.mongodb.net/onlineorderapp?retryWrites=true&w=majority';
 
+// handle parsing request body
 app.use(express.json());
 
+// database connection
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -19,6 +21,7 @@ mongoose.connect(mongoURI, {
   .then(() => console.log('dabtabase connected...'))
   .catch((err) => console.log(err.message));
 
+  
 const deleteMiddleware = (req, res, next) => {
   const id = req.params.id;
   console.log('I will delete from database');
@@ -48,10 +51,13 @@ const getMiddleware = (req, res, next) => {
   return next();
 }
 
+// handle requests for static assets
 app.use(express.static(path.join(__dirname, 'dist')));
 
+// handle images
 app.use('/images', express.static('./public/images'));
 
+// serve main app
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './src/template.html'));
 });
@@ -62,12 +68,13 @@ app.get('/api/menu', getMiddleware, (req, res) => {
 
 app.post('/api/add', postMiddleware, (req, res) => {
   res.send('created item in db');
-})
+});
 
 app.delete('/api/products/:id', deleteMiddleware, (req, res) => {
   res.send('has been deleted');
-})
+});
+
 
 app.listen(PORT, () => {
   console.log('server running.... 5000');
-})
+});
