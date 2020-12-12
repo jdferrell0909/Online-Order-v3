@@ -11,11 +11,12 @@ const HomeScreen = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get('/api/menu');
-  
+      console.log(data);
       setProducts(data);
     }
     fetchProducts();
   }, [])
+
   // once I have database set up, will likely want to use .filter instead of map and test for whether or not renderCheck is truthy
   return (
     <div>

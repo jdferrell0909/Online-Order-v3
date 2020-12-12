@@ -19,7 +19,7 @@ const Header = () => {
                   <Nav.Link>Add New Item</Nav.Link>
                 </LinkContainer>
                 <Nav.Link href="/signup">E-Club Members</Nav.Link>
-                <Nav.Link href="/cart"><i className='fas fa-shopping-cart'></i> Cart</Nav.Link>
+                <Nav.Link href="/cart">Settings</Nav.Link>
               </Nav>
             </Navbar.Collapse>
         </Container>

@@ -44,7 +44,7 @@ const NewItem = () => {
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>Category</Form.Label>
-          <Form.Control name="category" value='' as="select" value={category} onChange={handleInputChange}>
+          <Form.Control name="category" as="select" value={category} onChange={handleInputChange}>
             <option key='blankChoice' hidden value />
             <option>Appetizers</option>
             <option>Salads</option>
